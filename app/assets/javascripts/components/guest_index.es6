@@ -5,21 +5,6 @@ const GuestIndex = React.createClass({
   },
 
   renderGuests() {
-    // debugger
-    // let guests = this.props.guests
-    // let guestJSX = []
-    // _.forEach(guests, guest => {
-    //   let attending = guest.status ? "Yes" : "No"
-    //   guestJSX.push(
-    //     <div>
-    //       <div>
-    //         Name: {guest.name}
-    //       </div>
-    //       <div>
-    //         Attending: {attending}
-    //       </div>
-    //     </div>
-    //   )
     let guests = this.props.guests
     _.map(guests, guest => {
       debugger
