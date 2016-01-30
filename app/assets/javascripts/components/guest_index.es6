@@ -4,20 +4,8 @@ const GuestIndex = React.createClass({
     guests: React.PropTypes.array
   },
 
-  renderGuests() {
-    let guests = this.props.guests
-    _.map(guests, guest => {
-      debugger
-      let attending = guest.status ? "Yes" : "No"
-      return (
-        <tbody>
-          <tr>
-            <td>{guest.name}</td>
-            <td>{attending}</td>
-          </tr>
-        </tbody>
-      )
-    })
+  handleNameClick(name) {
+    console.log(name)
   },
 
   render() {
@@ -27,24 +15,26 @@ const GuestIndex = React.createClass({
       return (
         <tbody>
           <tr>
-            <td>{guest.name}</td>
-            <td>{attending}</td>
+            <td onClick={this.handleNameClick.bind(this, guest.name)} className="guest-name">{guest.name}</td>
+            <td className="status">{attending}</td>
           </tr>
         </tbody>
       )
     })
 
     return(
-      <div>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Attending?</th>
-            </tr>
-          </thead>
-          {guestRows}
-        </table>
+      <div className="row">
+        <div className="large-12 columns">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Attending?</th>
+              </tr>
+            </thead>
+            {guestRows}
+          </table>
+        </div>
       </div>
     )
   }
